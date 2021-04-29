@@ -1,17 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import foods from './foods';
+import { choice, remove } from './helpers';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let randFood = choice(foods);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+console.log(`I'd like one ${randFood}, please`);
+console.log(`Here you go: ${randFood}`);
+console.log(`Delicious! May I have another?`);
+let newFoods = remove(foods, randFood);
+console.log(`I'm sorry we're all out of ${randFood}. We have ${newFoods.length} different fruits left.`);
